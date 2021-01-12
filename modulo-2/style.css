@@ -1,0 +1,32 @@
+body {
+    background-color: #FFF;
+
+}
+
+input[type=text]{
+    padding: 10px;
+    font-size: 15px;
+}
+button {
+    padding: 40px;
+    font-size: 15px;
+}
+
+.azul {
+    background-color: blueviolet;
+    color: #FFF;
+}
+
+.vermelho {
+    background-color: #FF0000;
+    color: #FFF;
+}
+
+.verde {
+    background-color: greenyellow;
+    color: #000;
+}
+
+#telefone {
+    display: none;
+}
