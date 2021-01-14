@@ -29,6 +29,29 @@
 
 //MANIPULAÇÃO DE NUMEROS
 
-let n = 10.29393
+// let n = 10.29393
 
-let resultado = n.toFixed(2); // Formata a quantidade de casas decimais
+// let resultado = n.toFixed(2); // Formata a quantidade de casas decimais
+
+// resultado = n.toString // transforma o numero em String
+
+// resultado =  parseInt(resultado) // Passa uma string para number
+
+
+
+// METODOS DE MANIPULAÇÃO DE ARRAYS
+
+let lista = ['Ovo', 'Farinha', 'Corante', 'Massa']
+let res = lista.toString() // TRANSFORMA O ARRAY EM STRING
+
+lista.pop() //  REMOVE O ULTIMO ITEM DO ARRAY
+
+res =  lista.join('-') // Pega cada elemento e concatena com o caractere desejado
+//res = lista.indexOf('Corante') // Retorna a posição do elemento, senão encontrar retorna -1
+
+
+
+lista.shift() // RETIRA O PRIMEIRO ITEM DO ARRAY
+lista.push('Queijo-ralado') // ADICIONA UM NOVO ITEM NO ARRAY
+res = lista
+alert(res)
