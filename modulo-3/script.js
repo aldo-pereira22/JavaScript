@@ -145,6 +145,50 @@ let pessoa = lista3.find(function(item){
 })
 
 
-console.log(pessoa)
-alert(pessoa)
+// FUNÇÃO DATE
+
+
+let d = new Date();
+
+
+// FUNÇÕES MATEMATICAS
+
+
+// O número pi
+let pi = Math.PI;
+
+
+// Arrendodamento
+let arredondamento = Math.round(3.67)
+
+
+// Faz arrendondamento para baixo
+arredondamento  = Math.floor
+
+// Faz arredondamento para cima
+arredondamento = Math.ceil
+
+
+
+// Retorna o menor valor entre eles
+arredondamento = Math.min(7,22,30,99,120)
+
+
+// Retorna o maior  valor entre eles
+arredondamento = Math.max(7,22,30,99,120)
+
+
+// Retorna um número aleatorio entre 0 e 1
+arredondamento = Math.random()
+
+
+// Retorna um número aleatorio entre 0 e 100
+arredondamento = Math.floor( Math.random() * 100 )
+
+
+
+
+
+
+console.log(arredondamento)
 
