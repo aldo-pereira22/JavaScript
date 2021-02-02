@@ -139,10 +139,10 @@ let lista3  = [
 ]
 
 
-let pessoa = lista3.find(function(item){
+// let pessoa = lista3.find(function(item){
 
-    return (item.sobrenome == "Pereira") ? true : false
-})
+//     return (item.sobrenome == "Pereira") ? true : false
+// })
 
 
 // FUNÇÃO DATE
@@ -186,9 +186,230 @@ arredondamento = Math.random()
 arredondamento = Math.floor( Math.random() * 100 )
 
 
+// Intervalos
+
+function showTime(){
+    let d = new Date()
+    let h = d.getHours()
+    let m = d.getMinutes()
+    let s = d.getSeconds()
+    
+    let txt =  h+':'+m+':'+s
+    document.querySelector('.teste').innerHTML = txt;
+
+}
 
 
+let timer;
+function comecar(){
+    
+    timer = setInterval(showTime, 1000);
+}
+
+function parar(){
+    clearInterval(timer)
+}
+
+
+// setTimeout(function( ){
+//     alert('Rodou')
+
+// },2000)
 
 
 console.log(arredondamento)
 
+
+// TEMPLATE STRING
+let nome =' aldo'
+let idade = 30
+
+// let frase = ' Meu nome é: '+nome+' e eu tenho'+idade+ ' anos';
+let frase = `Meu nome é ${nome} ... e eu tenho ${idade} ... anos`;
+
+
+//Desconstrução / desestruturação de objetos
+
+let pessoa = {
+    nome:'Aldo',
+    sobrenome: 'Pereira',
+    idade: 30,
+    social: {
+        facebook: '@facebookaldo',
+        instagram:'aldo.22'
+    },
+    nomeCompleto: function(){
+        return `${this.nome} ${this.sobrenome}`
+    }
+
+}
+
+
+console.log(pessoa.nome)
+
+let nome1 = pessoa.nome;
+let sobrenome =  pessoa.sobrenome;
+let idade1 = pessoa.idade;
+
+
+
+// Outra forma de retirar atributos de um objeto: 
+let { nome:nomePessoa, sobrenome: sobrenomePessoa, idade:idade3} = pessoa;
+
+
+// Pegar os atributos dentro de outro objeto
+let {facebook, instagram:instagram1} = pessoa.social;
+
+
+// Outra forma, junto com os outros atributos
+
+let { nome3, idade4, social:{instagram} } = pessoa
+
+
+// Desconstruindo Arrays
+let array = ['Aldo Pereira', 'Aldo', 'Pereira', '@Pereira']
+let [nomeCompleto, nomeArray, sobrenomeArray, instagramArray] = array 
+
+//ARROW FUNCTION
+// let somar = function( x , y){
+
+
+//     return x + y;
+// }
+
+// let somar = (x, y) => {
+//     return x + y
+// }
+
+let soma = (x , y) => x * y
+
+let letras = (nome) => nome.length
+
+
+
+// SPREAD
+let numeros = [1, 2, 3, 4]
+
+let outros = [...numeros, 5,6,7]
+
+// SPREAD COM OBJETOS
+
+let info = {
+    nome: 'Aldo',
+    sobrenome: 'Pereira'
+}
+
+console.log(info)
+
+
+let novaInfo = {
+    ...info,
+    cidade: 'Goiania',
+    estado: 'GO'
+}
+
+
+// OPERADOR RESTs
+// function adicionar(...numeros){
+//     console.log(numeros)
+// }
+
+
+// function adicionar(nomes, ...novosNomes){
+//     let novoConjunto = [
+//         ...nomes,
+//         ...novosNomes
+//     ]
+
+//     return novoConjunto
+// }
+
+// let nomes = ['Aldo', 'Marcos']
+// let outros1 = adicionar(nomes, 'Aldo', 'João')
+
+// INCLUDES
+// let lista1 = ['ovo', 'cafe', 'Arroz', 'Feijao', 'Macarrao']
+
+
+
+// alert('x'.repeat(20 ))
+
+//Objeto, Values, Entries
+// let lista1 = [ 'ovo', 'macarrao', 'feijao', 'pipoca']
+
+
+
+// console.log(Object.values(lista1))
+
+// String, padStart, padEnd
+
+
+let telefone = '5'
+
+// Adiciona o limite de 9 caracters, se não tiver completa
+console.log(telefone.padEnd(9,'*'))
+
+//Adiciona no inicio
+// console.log( telefone.padStart(9,'-') )
+// let cartao = '1234 1234 1234 1234'
+// let lastDigits = cartao.slice(-4)
+
+// let cartaoMascarado = lastDigits.padStart(16,'*')
+// console.log(cartaoMascarado)
+
+
+// Promise
+// function fazer(){
+//     let promise  =  new Promise( ( resolve, reject )=>{
+        
+//         setTimeout( ()=> {
+//             resolve('ok')
+//         }, 3000)
+//     } );
+//     return promise;
+// }
+
+// fazer().then( (resposta)=>{
+//     console.log(resposta)
+// } )
+
+
+// fetch('https://alunos.b7web.com.br/api/ping')
+//     .then( (r)=>r.json())
+//     .then((json)=>{
+//         console.log(json)
+//     })
+
+function requisitar(){
+    const url = 'https://alunos.b7web.com.br/api/ping'
+    const params= {
+        method:'POST',
+        body:JSON.stringify({
+            nome:"Aldo",
+            idade:99
+        })
+    }
+
+    fetch(url, params)
+        .then((r)=>r.json())
+        .then((json)=>{
+            console.log(json)
+        })
+}
+
+async function requisitar2(){
+    const url = 'https://alunos.b7web.com.br/api/ping'
+    const params= {
+        method:'POST',
+        body:JSON.stringify({
+            nome:"Aldo",
+            idade:99
+        })
+    }
+
+    const r = await fetch(url, params)
+    const json  = await r.json();
+    console.log(json)
+    console.log('alguma coisa')
+}
+requisitar2()
